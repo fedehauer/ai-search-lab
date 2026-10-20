@@ -1,0 +1,150 @@
+{
+  "dataset": "ai-search-lab-v2-pilot",
+  "status": "synthetic_draft_unreviewed",
+  "version": "pilot-v0.2",
+  "parent_version": "pilot-v0.1",
+  "parent_path": "data/v2/pilot",
+  "created_date": "2026-10-20",
+  "change_type": "add_three_synthetic_documents_and_complete_new_judgments",
+  "new_document_ids": [
+    "SK09",
+    "PH09",
+    "TR09"
+  ],
+  "preserved_document_ids": [
+    "SK01",
+    "SK02",
+    "SK03",
+    "SK04",
+    "SK05",
+    "SK06",
+    "SK07",
+    "SK08",
+    "PH01",
+    "PH02",
+    "PH03",
+    "PH04",
+    "PH05",
+    "PH06",
+    "PH07",
+    "PH08",
+    "TR01",
+    "TR02",
+    "TR03",
+    "TR04",
+    "TR05",
+    "TR06",
+    "TR07",
+    "TR08"
+  ],
+  "preserved_query_ids": [
+    "SKQ01",
+    "SKQ02",
+    "SKQ03",
+    "SKQ04",
+    "PHQ01",
+    "PHQ02",
+    "PHQ03",
+    "PHQ04",
+    "TRQ01",
+    "TRQ02",
+    "TRQ03",
+    "TRQ04"
+  ],
+  "preserved_qrels_rows": 288,
+  "added_qrels_rows": 36,
+  "original_docs": 24,
+  "current_docs": 27,
+  "queries": 12,
+  "original_pairs": 288,
+  "current_pairs": 324,
+  "current_grade_counts": {
+    "0": 289,
+    "1": 17,
+    "2": 18
+  },
+  "queries_with_evidenced_grade_2_candidate": [
+    {
+      "query_id": "SKQ01",
+      "fully_relevant": [
+        "SK09"
+      ]
+    },
+    {
+      "query_id": "SKQ02",
+      "fully_relevant": [
+        "SK01",
+        "SK02",
+        "SK09"
+      ]
+    },
+    {
+      "query_id": "SKQ03",
+      "fully_relevant": [
+        "SK03"
+      ]
+    },
+    {
+      "query_id": "SKQ04",
+      "fully_relevant": [
+        "SK04"
+      ]
+    },
+    {
+      "query_id": "PHQ01",
+      "fully_relevant": [
+        "PH09"
+      ]
+    },
+    {
+      "query_id": "PHQ02",
+      "fully_relevant": [
+        "PH01",
+        "PH02",
+        "PH09"
+      ]
+    },
+    {
+      "query_id": "PHQ03",
+      "fully_relevant": [
+        "PH03"
+      ]
+    },
+    {
+      "query_id": "PHQ04",
+      "fully_relevant": [
+        "PH05"
+      ]
+    },
+    {
+      "query_id": "TRQ01",
+      "fully_relevant": [
+        "TR09"
+      ]
+    },
+    {
+      "query_id": "TRQ02",
+      "fully_relevant": [
+        "TR01",
+        "TR02",
+        "TR09"
+      ]
+    },
+    {
+      "query_id": "TRQ03",
+      "fully_relevant": [
+        "TR03"
+      ]
+    },
+    {
+      "query_id": "TRQ04",
+      "fully_relevant": [
+        "TR04"
+      ]
+    }
+  ],
+  "human_validation": false,
+  "all_review_status": "proposed_unreviewed",
+  "test_blinding": "not_blinded_public_test_qrels",
+  "notes": "Cross-language equivalents and all new query-document pairs have proposed relevance labels; no original v0.1 data were overwritten. No model outputs or labels from observed ranking were used."
+}
