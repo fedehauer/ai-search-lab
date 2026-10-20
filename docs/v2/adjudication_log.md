@@ -55,3 +55,32 @@ The user approved the three **PROPOSE-0** cases from the assistant's grade-1 aud
 **After this change:** All **288** qrels remain present, grades **260 / 10 / 18** for **0 / 1 / 2**, and **all statuses remain `proposed_unreviewed`**. The five HOLD decisions are now resolved **provisionally**; zero model-based evidence was used for any change. Pilot test-query judgments are public and openly adjudicated *before* V2 model runs; this pilot must not be advertised as a permanently blinded evaluation set.
 
 **Remaining work:** Review the other **287** grade proposals systematically (including the four retained grade-1 decisions above); audit grade-0 and grade-2 labels; check whether the inclusion of cities/routes actually provides meaningful assistance, as opposed to mere name-dropping, using external human adjudicators if robust inter-annotator validity is a goal. The audit does not claim ground-truth validation, statistically independent labeling or downstream model superiority.
+
+---
+
+## 2026-10-20 — Strict evidence rule for six former grade-2 pairs
+
+**Decision:** The user explicitly approved grading as fully relevant **only when the candidate title/description demonstrates every explicit query requirement**. Absence of evidence is not proof of service absence; it cannot establish full task satisfaction.
+
+**Reference:** [Grade-2 audit](full_relevance_audit_v0_1.md) and [annotation guidelines](annotation_guidelines.md).  
+**Implemented qrels commit:** [9cc674cf5c4f2d6a57a9083d4226a8e3c88f29a0](https://github.com/fedehauer/ai-search-lab/commit/9cc674cf5c4f2d6a57a9083d4226a8e3c88f29a0).
+
+| Query | Candidate | Previous | New | Missing explicit evidence |
+|---|---|---:|---:|---|
+| SKQ01 — rent skis **online** in Winterberg | SK01 | 2 | **1** | Ski rental reservation is described, but **online reservation channel** is not |
+| SKQ01 — same query | SK02 | 2 | **1** | Spanish rental booking page, but **online reservation channel** is not |
+| PHQ01 — book physiotherapy **online** in Innsbruck | PH01 | 2 | **1** | Physio appointment booking is described, but **online scheduling** is not |
+| PHQ01 — same query | PH02 | 2 | **1** | English booking page, but **online scheduling** is not |
+| TRQ01 — book a private **car** transfer Oaxaca City → Puerto Escondido | TR01 | 2 | **1** | Correct private route/booking, but **car** vehicle class is not stated |
+| TRQ01 — same query | TR02 | 2 | **1** | Correct private booking in Spanish, but **car** vehicle class is not stated |
+
+**Only six existing rows changed**, and each had its rationale rewritten to distinguish `unspecified` from `unavailable`; every `review_status` remains `proposed_unreviewed`. Other **282** qrel rows, all 12 query strings, all 24 document descriptions, and development/test group allocations remain untouched.
+
+### Data quality impact and evaluation blocker
+
+- Total graded pairs still **288**.
+- Grade distribution **260 / 16 / 12** for grades **0 / 1 / 2**, previously **260 / 10 / 18**.
+- **SKQ01**, **PHQ01**, and **TRQ01** now have **no grade-2 candidate** in the published 24-document synthetic corpus.
+- This violates the V2 pilot gate requiring one fully relevant candidate for every query. **Do not calculate/publish model performance as if the pilot passed validation.**
+- The fix is a **separately versioned corpus design change**, with a new complete qrel pool and a fresh validation pass. Do not silently add capabilities to existing descriptions to preserve labels.
+- Review of 260 grade-0 and remaining 16 grade-1 proposals is still needed. These six authorized changes are not evidence of full independent judgment validation.
