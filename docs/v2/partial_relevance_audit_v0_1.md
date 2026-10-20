@@ -1,7 +1,7 @@
 # Benchmark V2 pilot — Grade-1 relevance audit (v0.1)
 
 **Status:** Independent *reasoning pass by the assistant only*; **not** a second-human annotation or validated ground truth.  
-**Historical snapshot note (2026-10-20):** This report captures the **pre-adjudication** distribution of 14 proposed grade-1 labels. The user subsequently approved and we applied **PHQ01→PH08, PHQ02→PH08, and PHQ04→PH08: grade 1 → 0**. The current dataset contains **11** proposed grade-1 pairs, with **five HOLD pairs still open**. See the [adjudication log](adjudication_log.md) for the actual changes. The table below is intentionally preserved as the historical audit, not the latest grade distribution.
+**Historical snapshot note (2026-10-20):** This report captures the **pre-adjudication** distribution of 14 proposed grade-1 labels. The user subsequently approved and we applied **PHQ01→PH08, PHQ02→PH08, and PHQ04→PH08: grade 1 → 0**. After the first correction, the dataset contained **11** proposed grade-1 pairs and five open HOLD cases. **Subsequent adjudication resolved all five HOLD cases provisionally**, with one additional change PHQ03→PH08 from grade 1 to grade 0. The **current dataset contains 10 grade-1 proposals**. See the [adjudication log](adjudication_log.md) for both chronological sets of decisions. The table below is intentionally preserved as the historical audit, not the latest grade distribution.
 
 **Scope:** All 14 pairs currently assigned proposed grade **1** in `data/v2/pilot/qrels_draft.csv`.  
 **Reference:** [Annotation guidelines](annotation_guidelines.md) and [pilot dataset](../../data/v2/pilot/README.md).  
