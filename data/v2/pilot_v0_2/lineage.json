@@ -51,7 +51,7 @@
     "TRQ03",
     "TRQ04"
   ],
-  "preserved_qrels_rows": 288,
+  "preserved_qrels_rows": 286,
   "added_qrels_rows": 36,
   "original_docs": 24,
   "current_docs": 27,
@@ -59,8 +59,8 @@
   "original_pairs": 288,
   "current_pairs": 324,
   "current_grade_counts": {
-    "0": 289,
-    "1": 17,
+    "0": 287,
+    "1": 19,
     "2": 18
   },
   "queries_with_evidenced_grade_2_candidate": [
@@ -146,5 +146,17 @@
   "human_validation": false,
   "all_review_status": "proposed_unreviewed",
   "test_blinding": "not_blinded_public_test_qrels",
-  "notes": "Cross-language equivalents and all new query-document pairs have proposed relevance labels; no original v0.1 data were overwritten. No model outputs or labels from observed ranking were used."
+  "notes": "The source pilot-v0.1 has not been edited. v0.2 preserves all 24 document and 12 query records; of 288 inherited qrels, 286 retain identical values and two approved PH03 rows changed grade 0 to 1 with revised rationales. 36 new qrels were generated. All remain proposed_unreviewed; no model outputs used.",
+  "approved_changed_existing_qrels_rows": 2,
+  "approved_existing_qrel_changes": [
+    [
+      "PHQ01",
+      "PH03"
+    ],
+    [
+      "PHQ02",
+      "PH03"
+    ]
+  ],
+  "approved_change_type": "User-approved adjudication from grade 0 to grade 1; updated rationale; source v0.1 unchanged"
 }
