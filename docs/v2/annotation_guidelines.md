@@ -9,6 +9,20 @@ Test whether the 0–2 relevance rubric is usable for multilingual query-to-page
 - **1 — Partially relevant:** The page provides **meaningful, evidence-supported assistance or a plausible alternative** toward the user's specific task, but fails to satisfy one or more explicit requirements. This is **not** successful task completion. Examples include an actionable destination-specific rental overview without direct booking, or a bookable shared shuttle where a private transfer was requested. Annotators must flag such cases as *borderline* and document the missing requirement. Mere topical overlap or location name-dropping is insufficient.
 - **0 — Not relevant:** The page belongs to another service, product, location, direction, or does not answer the informational need. Similar vocabulary alone is not sufficient.
 
+## Strict evidence standard — adopted for the pilot (2026-10-20)
+
+The reviewer approved a **strict, source-supported grade-2 rule** for this synthetic retrieval benchmark:
+
+> **Grade 2 requires explicit support in the document title and/or description for every stated query constraint**: action, service/product, city or route/direction, booking channel if specified, and transportation modality/vehicle class if specified. Do not fill an evidence gap with expectations about how a real landing page would normally work.
+
+- **Not specified is not the same as unavailable.** If an online booking mechanism is not mentioned, mark it **`online_booking_unspecified`**, not `booking_unavailable`. If the description expressly says no booking is provided, use `booking_unavailable`.
+- **Online booking must be evidenced.** A page called a “booking page” or a page accepting reservations does not, on its own, prove online self-service. If the query explicitly requires an online action and the channel is unverified, it cannot receive grade 2. Grade 1 may remain defensible when it otherwise supports booking in the right location.
+- **Specific car requirement must be evidenced.** A synthetic page for a “private transfer” does not, on its own, explicitly identify a **car**; grade 2 for a query requesting a `private car transfer` requires support for that vehicle class. Grade 1 is defensible when the private route and booking match but vehicle class is unspecified.
+- **No language penalty by default.** German/Spanish/English cross-language documents can receive grade 2 if the user did not explicitly request a language and all other requirements are evidenced.
+- **Do not invent missing facts.** A lack of evidence for a requirement does not imply that the service cannot provide it, but the document does not qualify for full relevance in this controlled evaluation.
+- **Never improve labels by rewriting document descriptions in place.** When a query is left without a grade-2 candidate, record a **dataset-design gap** and produce a separately versioned synthetic-corpus proposal before running any model evaluation. New documents also require complete judgments against every query.
+- **Adjudication provenance:** The six grade-2 downgrades implementing this standard were explicitly authorized by the user, but the entire synthetic ground truth remains proposed and subject to further human/independent review. The original pilot test queries and labels are already publicly visible.
+
 ## Relevance vs. strict task satisfaction
 
 **Two different judgments must not be conflated:**
@@ -26,6 +40,8 @@ These codes explain *why* a candidate fails to achieve grade 2. They are **not y
 | Code | When to use | Example |
 |---|---|---|
 | `booking_unavailable` | Correct destination/service but no requested direct booking function | SKQ01 → SK07 (proposed grade 1) |
+| `online_booking_unspecified` | Document supports a booking/reservation but does **not evidence an explicitly requested online channel** | SKQ01 → SK01, PHQ01 → PH01 (grade 1 after strict review) |
+| `vehicle_type_unspecified` | Route and private-service booking match, but the **requested vehicle class is not described** | TRQ01 → TR01 (grade 1 after strict review) |
 | `service_modality_mismatch` | Route/service is related but required service class differs | TRQ01 → TR05: shared instead of private (proposed grade 1) |
 | `service_type_mismatch` | Wrong product or service | Ski rental query → snowboard rental page |
 | `location_mismatch` | Service fits but required destination does not | Winterberg query → Mayrhofen-only rental |
