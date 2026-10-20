@@ -129,3 +129,18 @@ The core unresolved decision is whether a **city-specific condition-treatment pa
 **Dataset impact:** **None.** v0.2 remains **324** proposed, `proposed_unreviewed` qrels with grades **289 / 17 / 18**, and the v0.1 files remain intact. The reports are **not independent human judgments**. Additionally, **216 cross-sector grade-0 pairs** remain outside this specific within-sector review. Do not mark any CSV row as reviewed on the basis of this pass alone.
 
 **Next human decision:** Adjudicate the two PH03 pairs together, then document any authorized changes with explicit evidence and full lineage.
+
+---
+
+## 2026-10-20 — User-approved PH03 partial relevance in pilot-v0.2
+
+User approved updating `PHQ01→PH03` and `PHQ02→PH03` from **grade 0 to grade 1**, because the page explicitly describes shoulder physiotherapy in Innsbruck and may help users identify local physiotherapy services. It does not demonstrate an appointment or an online booking mechanism, so grade 2 would not be justified.
+
+| Query–document | Previous grade | New grade | Justification |
+|---|---:|---:|---|
+| `PHQ01→PH03` | 0 | **1** | Local physiotherapy information may help, but required online booking is unproven. |
+| `PHQ02→PH03` | 0 | **1** | The same city-specific information is partly useful for appointment discovery; booking is unproven. |
+
+**Applied:** [commit e6de367ad56bfbc34f11bb82d6d0b24ca017a435](https://github.com/fedehauer/ai-search-lab/commit/e6de367ad56bfbc34f11bb82d6d0b24ca017a435). These are the only qrel edits; all other qrels, documents, queries and splits remain unchanged. The v0.1 pilot remains preserved.
+
+**Current v0.2 counts:** 324 graded pairs, **287 grade 0 / 19 grade 1 / 18 grade 2**, all still `proposed_unreviewed`. The older 73-case within-sector audit remains a historical snapshot: it listed two HOLD cases now resolved as grade 1, leaving **71** current within-sector grade-0 cases. User consent for this change is not independent human review of all labels.
