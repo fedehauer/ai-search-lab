@@ -23,6 +23,18 @@
 - `lineage.json` — version relationship, counts and change audit.
 - `../../../scripts/validate_v2_pilot_v0_2.py` — Python standard-library validation, runnable locally or in Colab with the full GitHub repository checkout.
 
+## GitHub Actions execution (2026-10-20)
+
+**PASS — structural validation actually executed** in [GitHub Actions run #39454935795](https://github.com/fedehauer/ai-search-lab/actions/runs/39454935795). The Python script verified 27 documents, 12 queries, 324 pairs, grades 287/19/18, preserved v0.1 source records, exactly two authorized inherited qrel changes, and development/test group consistency.
+
+This validates **data integrity only**, not whether the proposed relevance labels are correct.
+
+## Human review resources
+
+- [Human review protocol](../../../docs/v2/human_review_protocol.md): graded rubric, review workflow, independent annotation criteria, adjudication and freeze rules.
+- [Grade-masked CSV sheet](review_sheet_grade_masked.csv): all 324 pairs in shuffled order, no proposed relevance grades, and blank human judgment/reason/confidence/reviewer fields.
+- The sheet is a **template**, not completed human annotation. Every qrel remains `proposed_unreviewed`.
+
 ## Reproducibility and review
 
 1. Run `python scripts/validate_v2_pilot_v0_2.py` from the repository root. The script checks counts, one pair per query and document, identical original document/query records, two explicitly approved inherited-qrel modifications, inherited intent split, statuses, and at least one grade-2 candidate per query.
