@@ -111,3 +111,21 @@ The user approved the three **PROPOSE-0** cases from the assistant's grade-1 aud
 - A standalone [validation script](../../scripts/validate_v2_pilot_v0_2.py) is provided for users to run with Python 3; counts/invariants were checked during generation, but independent human relevance judgments have not taken place.
 
 **Next audit:** Review all 36 new qrel proposals and the previously triaged **68 within-sector grade-0 pairs**, then the remaining pairs. Do not merge as a validated benchmark or claim model performance until the review gates are met.
+
+---
+
+## 2026-10-20 — Assistant-only audit of 36 new labels and 73 within-sector grade-0 labels (no relabeling)
+
+**Reviewed work:** Following the creation of the additive v0.2 synthetic corpus, an assistant-only evidence pass compared each of the **36 new query–document proposals** and the **73 currently grade-0 within-sector proposals** against the query texts and the candidate title + descriptions, under the strict explicit-evidence rubric. The user authorized proceeding with the audit; no new grade changes were requested or made.
+
+**Findings in the [36-new-pair report](new_pairs_audit_v0_2.md):** 29 KEEP-0, 1 KEEP-1 (`PHQ03→PH09`), and 6 KEEP-2; no label change proposed in this pass.
+
+**Findings in the [73-grade-0 report](grade0_within_domain_audit_v0_2.md):** 71 KEEP-0 provisional, **2 HOLD** requiring a consistent partial-relevance policy:
+- `PHQ01→PH03`: query seeks an **online physiotherapy appointment in Innsbruck**; PH03 describes **shoulder-physiotherapy information in Innsbruck**, without a demonstrated appointment booking or online booking facility.
+- `PHQ02→PH03`: query seeks a **bookable physiotherapy appointment in Innsbruck**; same PH03 page may potentially help someone find a local treatment, but appointment action is not demonstrated.
+
+The core unresolved decision is whether a **city-specific condition-treatment page without appointment-booking evidence** provides sufficient meaningful assistance to earn grade 1, or remains merely topical/local and deserves grade 0. The rubric allows partial assistance but bars unsupported assumptions of appointment capabilities.
+
+**Dataset impact:** **None.** v0.2 remains **324** proposed, `proposed_unreviewed` qrels with grades **289 / 17 / 18**, and the v0.1 files remain intact. The reports are **not independent human judgments**. Additionally, **216 cross-sector grade-0 pairs** remain outside this specific within-sector review. Do not mark any CSV row as reviewed on the basis of this pass alone.
+
+**Next human decision:** Adjudicate the two PH03 pairs together, then document any authorized changes with explicit evidence and full lineage.
