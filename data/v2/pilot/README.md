@@ -14,7 +14,7 @@
 - `queries.jsonl`: multilingual queries, intent-group IDs and suggested split
 - `qrels_draft.csv`: complete 288-row **AI-proposed** relevance annotations, **not yet reviewed**
 - `splits.json`: auditable query-group assignments
-- `../../../../docs/v2/annotation_guidelines.md`: human review instructions and disputed edge cases
+- `../../../docs/v2/annotation_guidelines.md`: human review instructions and disputed edge cases
 
 ## Review gate
 
