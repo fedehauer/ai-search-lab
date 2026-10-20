@@ -158,7 +158,7 @@ query_id,document_id,grade,review_status,rationale
 "PHQ03","PH05","0","proposed_unreviewed","Fails required action, product, location, direction or information need."
 "PHQ03","PH06","0","proposed_unreviewed","Fails required action, product, location, direction or information need."
 "PHQ03","PH07","0","proposed_unreviewed","Fails required action, product, location, direction or information need."
-"PHQ03","PH08","1","proposed_unreviewed","Regional overview mentions shoulders but not specific Innsbruck service."
+"PHQ03","PH08","0","proposed_unreviewed","Regional Tyrol treatment overview mentions shoulders but does not establish shoulder physiotherapy availability or a specific service in Innsbruck; regional topical overlap is insufficient."
 "PHQ03","TR01","0","proposed_unreviewed","Different sector; does not satisfy the user need."
 "PHQ03","TR02","0","proposed_unreviewed","Different sector; does not satisfy the user need."
 "PHQ03","TR03","0","proposed_unreviewed","Different sector; does not satisfy the user need."
