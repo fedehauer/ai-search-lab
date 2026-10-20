@@ -144,3 +144,11 @@ User approved updating `PHQ01→PH03` and `PHQ02→PH03` from **grade 0 to grade
 **Applied:** [commit e6de367ad56bfbc34f11bb82d6d0b24ca017a435](https://github.com/fedehauer/ai-search-lab/commit/e6de367ad56bfbc34f11bb82d6d0b24ca017a435). These are the only qrel edits; all other qrels, documents, queries and splits remain unchanged. The v0.1 pilot remains preserved.
 
 **Current v0.2 counts:** 324 graded pairs, **287 grade 0 / 19 grade 1 / 18 grade 2**, all still `proposed_unreviewed`. The older 73-case within-sector audit remains a historical snapshot: it listed two HOLD cases now resolved as grade 1, leaving **71** current within-sector grade-0 cases. User consent for this change is not independent human review of all labels.
+
+---
+
+## 2026-10-20 — Cross-domain grade-0 screening in v0.2
+
+An assistant-run cross-sector screen examined **216 query–document pairs** (12 queries × 18 off-sector candidates). All 216 were already provisionally grade 0, and no evidence of a matching requested task was found in the provided synthetic titles/descriptions. **No qrels were changed** by this screen. The six query-domain → document-domain combinations contribute 36 pairs each.
+
+See the [216-pair inventory and scope notes](cross_domain_grade0_screen_v0_2.md). This is a *rule-based text/intent screen*, **not independent human annotation**. The entire current dataset still consists of **324 proposed, unreviewed qrels**, including **71 within-domain** and **216 cross-domain** grade-0 pairs. Current totals are **287 / 19 / 18** (grades 0/1/2).
