@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OLD = ROOT / "data" / "v2" / "pilot"
 NEW = ROOT / "data" / "v2" / "pilot_v0_2"
 NEW_IDS = {"SK09", "PH09", "TR09"}
-EXPECTED = {0: 289, 1: 17, 2: 18}
+EXPECTED = {0: 287, 1: 19, 2: 18}
 EXPECTED_GRADES = {
     ("SKQ01", "SK09"): 2,
     ("SKQ02", "SK09"): 2,
@@ -71,8 +71,20 @@ def validate() -> None:
     old_map = {(r["query_id"], r["document_id"]): r for r in old_qrels}
     new_map = {(r["query_id"], r["document_id"]): r for r in new_qrels}
     assert len(old_map) == 288 and len(new_map) == 324, "Duplicate qrel pair(s)"
+    approved_changes = {("PHQ01", "PH03"), ("PHQ02", "PH03")}
     for key, original in old_map.items():
-        assert new_map.get(key) == original, f"Existing qrel modified: {key}"
+        updated = new_map.get(key)
+        assert updated is not None, f"Missing inherited qrel: {key}"
+        if key in approved_changes:
+            assert original["grade"] == 0 and updated["grade"] == 1, (
+                f"Incorrect approved PH03 grade change: {key}"
+            )
+            assert updated["review_status"] == original["review_status"]
+            assert "booking" in updated["rationale"].lower(), (
+                f"Missing booking evidence note: {key}"
+            )
+        else:
+            assert updated == original, f"Unapproved inherited qrel change: {key}"
 
     keys = {
         (q["query_id"], doc["document_id"])
@@ -117,14 +129,19 @@ def validate() -> None:
 
     assert lineage["new_document_ids"] == ["SK09", "PH09", "TR09"]
     assert lineage["current_pairs"] == 324 and lineage["added_qrels_rows"] == 36
-    assert lineage["preserved_qrels_rows"] == 288
+    assert lineage["preserved_qrels_rows"] == 286
+    assert lineage["approved_changed_existing_qrels_rows"] == 2
+    assert {
+        tuple(pair) for pair in lineage["approved_existing_qrel_changes"]
+    } == {("PHQ01", "PH03"), ("PHQ02", "PH03")}
     assert lineage["human_validation"] is False
 
     print("PASS — Synthetic V2 pilot v0.2 structural validation")
     print("27 documents x 12 queries = 324 complete, unreviewed judgments")
-    print("Old pilot: 24 documents and 288 qrels preserved verbatim as records")
+    print("Old pilot: all 24 original document records unchanged")
+    print("Of 288 old qrels, 286 unchanged; two user-approved PH03 grade 0-to-1 changes")
     print("New docs: SK09, PH09, TR09; all 36 new candidate pairs labeled")
-    print("Grades: 0=289, 1=17, 2=18")
+    print("Grades: 0=287, 1=19, 2=18")
     print("All 12 queries have at least one PROPOSED grade-2 document")
     print("8 development / 4 test queries; no intent-group split leakage")
     print("WARNING: This does NOT establish validated human ground truth.")
