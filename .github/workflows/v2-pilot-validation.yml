@@ -1,0 +1,32 @@
+name: V2 Pilot Data Integrity
+
+on:
+  push:
+    branches:
+      - research/benchmark-v2-spec
+    paths:
+      - ".github/workflows/v2-pilot-validation.yml"
+      - "scripts/validate_v2_pilot_v0_2.py"
+      - "data/v2/pilot/**"
+      - "data/v2/pilot_v0_2/**"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/v2-pilot-validation.yml"
+      - "scripts/validate_v2_pilot_v0_2.py"
+      - "data/v2/pilot/**"
+      - "data/v2/pilot_v0_2/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-v2-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout proposed branch
+        uses: actions/checkout@v4
+      - name: Validate synthetic pilot v0.2
+        run: python3 scripts/validate_v2_pilot_v0_2.py

@@ -1,0 +1,110 @@
+{
+  "status": "pilot_v0_2_draft_unreviewed",
+  "version": "pilot-v0.2",
+  "shared_candidate_corpus": true,
+  "docs_total": 27,
+  "queries_total": 12,
+  "groups": [
+    {
+      "intent_group_id": "ski_rent_winterberg",
+      "split": "development"
+    },
+    {
+      "intent_group_id": "ski_repair_winterberg",
+      "split": "test"
+    },
+    {
+      "intent_group_id": "ski_buy_winterberg",
+      "split": "development"
+    },
+    {
+      "intent_group_id": "physio_book_innsbruck",
+      "split": "development"
+    },
+    {
+      "intent_group_id": "physio_shoulder_innsbruck",
+      "split": "test"
+    },
+    {
+      "intent_group_id": "physio_manual_therapy_info",
+      "split": "development"
+    },
+    {
+      "intent_group_id": "private_oaxaca_to_puerto",
+      "split": "development"
+    },
+    {
+      "intent_group_id": "private_puerto_to_oaxaca",
+      "split": "test"
+    },
+    {
+      "intent_group_id": "airport_puerto_to_city",
+      "split": "test"
+    }
+  ],
+  "assignments": [
+    {
+      "query_id": "SKQ01",
+      "intent_group_id": "ski_rent_winterberg",
+      "split": "development"
+    },
+    {
+      "query_id": "SKQ02",
+      "intent_group_id": "ski_rent_winterberg",
+      "split": "development"
+    },
+    {
+      "query_id": "SKQ03",
+      "intent_group_id": "ski_repair_winterberg",
+      "split": "test"
+    },
+    {
+      "query_id": "SKQ04",
+      "intent_group_id": "ski_buy_winterberg",
+      "split": "development"
+    },
+    {
+      "query_id": "PHQ01",
+      "intent_group_id": "physio_book_innsbruck",
+      "split": "development"
+    },
+    {
+      "query_id": "PHQ02",
+      "intent_group_id": "physio_book_innsbruck",
+      "split": "development"
+    },
+    {
+      "query_id": "PHQ03",
+      "intent_group_id": "physio_shoulder_innsbruck",
+      "split": "test"
+    },
+    {
+      "query_id": "PHQ04",
+      "intent_group_id": "physio_manual_therapy_info",
+      "split": "development"
+    },
+    {
+      "query_id": "TRQ01",
+      "intent_group_id": "private_oaxaca_to_puerto",
+      "split": "development"
+    },
+    {
+      "query_id": "TRQ02",
+      "intent_group_id": "private_oaxaca_to_puerto",
+      "split": "development"
+    },
+    {
+      "query_id": "TRQ03",
+      "intent_group_id": "private_puerto_to_oaxaca",
+      "split": "test"
+    },
+    {
+      "query_id": "TRQ04",
+      "intent_group_id": "airport_puerto_to_city",
+      "split": "test"
+    }
+  ],
+  "split_note": "Intent-group assignments are unchanged from pilot-v0.1: 8 development / 4 test queries; both splits rank the same 27-document candidate pool. This pilot's public test annotations are not blinded.",
+  "parent_version": "pilot-v0.1",
+  "expected_judgments": 324
+}
