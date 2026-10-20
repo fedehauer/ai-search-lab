@@ -8,10 +8,10 @@
   - `SK09`: ski rental with **online reservation** in Winterberg;
   - `PH09`: physiotherapy appointment with **online scheduling** in Innsbruck;
   - `TR09`: **private car** booking Oaxaca City → Puerto Escondido.
-- Existing **24 document texts**, **12 query texts**, all query intent-group and development/test assignments, and the **288 original query–document grades and rationales** are preserved unchanged.
+- Existing **24 document texts**, **12 query texts**, all query intent-group and development/test assignments, and the **288 inherited query–document rows** were copied from v0.1, then **two** v0.2 PH03 labels were changed 0→1 with user approval. The other **286 inherited qrels** remain identical.
 - A **complete 36-row draft** was added: each of the 12 queries is graded against **each** new document (including unrelated and held-out test queries). New judgments are **AI-proposed, unreviewed**.
 - Candidate corpus: **27 documents**; query set: **12**; fully enumerated qrels: **324 = 12 × 27**.
-- Grade distribution: **289 grade-0 / 17 grade-1 / 18 grade-2**. Every query now has at least one *proposed* grade-2 candidate, but this is a structural/evidence check, **not** human validation.
+- Current grade distribution: **287 grade-0 / 19 grade-1 / 18 grade-2**. Every query now has at least one *proposed* grade-2 candidate, but this is a structural/evidence check, **not** human validation.
 - The pilot test labels are public; do not describe it as a permanently blinded test.
 
 ## Files
@@ -25,9 +25,9 @@
 
 ## Reproducibility and review
 
-1. Run `python scripts/validate_v2_pilot_v0_2.py` from the repository root. The script checks counts, one pair per query and document, identical original records, inherited intent split, statuses, and at least one grade-2 candidate per query.
+1. Run `python scripts/validate_v2_pilot_v0_2.py` from the repository root. The script checks counts, one pair per query and document, identical original document/query records, two explicitly approved inherited-qrel modifications, inherited intent split, statuses, and at least one grade-2 candidate per query.
 2. Evaluate grades by hand using [annotation guidelines](../../../docs/v2/annotation_guidelines.md), especially `PHQ03→PH09` (general physiotherapy without shoulder specialization, grade **1**) and whether new descriptions substantiate online booking/car class.
 3. Inspect the [adjudication log](../../../docs/v2/adjudication_log.md) and [corpus repair proposal](../../../docs/v2/corpus_gap_plan_v0_2.md). This v0.2 file set is an implementation of the approved additive option.
-4. Prioritize the **within-sector grade-0 audit**, and then all remaining rows, before declaring the qrels validated or scoring retrieval models.
+4. Read the [within-sector audit](../../../docs/v2/grade0_within_domain_audit_v0_2.md), including the later user-approved PH03 decision, and the [cross-sector screen](../../../docs/v2/cross_domain_grade0_screen_v0_2.md). The 71 within-sector and 216 cross-sector grade-0 labels are still **assistant-only provisional judgments**, not independent human validation.
 
 **Safety / provenance:** Entirely synthetic fictional test pages; real place names only as geographic labels. No real provider availability, treatment outcome, personal data, or actual client/customer records are represented. Documentation and rationales are in English; query/page text remains multilingual as experimental data.
