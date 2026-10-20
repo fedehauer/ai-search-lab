@@ -1,0 +1,12 @@
+# Local Python/Colab files
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+*.pyc
+.env
+.env.*
+# Large downloaded model artifacts (do not commit model weights)
+models/
+cache/
+*.safetensors

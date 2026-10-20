@@ -1,0 +1,97 @@
+{
+  "dataset_id": "ai-search-lab-benchmark-v1",
+  "language_notes": "Queries and page titles in German and Spanish; all examples are synthetic.",
+  "documents": [
+    {
+      "id": "P01",
+      "text": "Skiverleih Winterberg | Ski ausleihen und online reservieren"
+    },
+    {
+      "id": "P02",
+      "text": "Alquiler de esquís en Winterberg | Reserva tu equipo"
+    },
+    {
+      "id": "P03",
+      "text": "Ski kaufen Winterberg | Neue Ski im Fachgeschäft"
+    },
+    {
+      "id": "P04",
+      "text": "Skishop Winterberg | Ski kaufen und im Laden abholen"
+    },
+    {
+      "id": "P05",
+      "text": "Skiservice Winterberg | Ski reparieren und Kanten schleifen"
+    },
+    {
+      "id": "P06",
+      "text": "Hotel Winterberg | Zimmer und Apartments buchen"
+    },
+    {
+      "id": "P07",
+      "text": "Snowboardverleih Winterberg | Snowboards mieten"
+    },
+    {
+      "id": "P08",
+      "text": "Skiverleih Mayrhofen | Ski online mieten"
+    },
+    {
+      "id": "P09",
+      "text": "Skiverleih Zell am See | Ausrüstung mieten"
+    },
+    {
+      "id": "P10",
+      "text": "Skipass Winterberg | Liftkarten online buchen"
+    },
+    {
+      "id": "P11",
+      "text": "Ski reparieren Innsbruck | Skiservice"
+    }
+  ],
+  "queries": [
+    {
+      "id": "Q01",
+      "text": "Wo kann ich in Winterberg Ski ausleihen?",
+      "relevant_document_ids": [
+        "P01",
+        "P02"
+      ]
+    },
+    {
+      "id": "Q02",
+      "text": "Wo kann ich in Winterberg Ski kaufen?",
+      "relevant_document_ids": [
+        "P03",
+        "P04"
+      ]
+    },
+    {
+      "id": "Q03",
+      "text": "Skireparatur in Winterberg",
+      "relevant_document_ids": [
+        "P05"
+      ]
+    },
+    {
+      "id": "Q04",
+      "text": "¿Dónde alquilar esquís en Winterberg?",
+      "relevant_document_ids": [
+        "P01",
+        "P02"
+      ]
+    },
+    {
+      "id": "Q05",
+      "text": "Ski mieten in Mayrhofen",
+      "relevant_document_ids": [
+        "P08"
+      ]
+    },
+    {
+      "id": "Q06",
+      "text": "Hotel buchen in Winterberg",
+      "relevant_document_ids": [
+        "P06"
+      ]
+    }
+  ]
+}

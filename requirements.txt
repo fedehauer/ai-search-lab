@@ -1,0 +1,5 @@
+# Top-level dependencies; exact versions of the original Colab run were not recorded.
+# Run the notebook once to print your actual installed versions.
+sentence-transformers
+scikit-learn
+numpy
