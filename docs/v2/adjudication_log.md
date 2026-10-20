@@ -84,3 +84,30 @@ The user approved the three **PROPOSE-0** cases from the assistant's grade-1 aud
 - This violates the V2 pilot gate requiring one fully relevant candidate for every query. **Do not calculate/publish model performance as if the pilot passed validation.**
 - The fix is a **separately versioned corpus design change**, with a new complete qrel pool and a fresh validation pass. Do not silently add capabilities to existing descriptions to preserve labels.
 - Review of 260 grade-0 and remaining 16 grade-1 proposals is still needed. These six authorized changes are not evidence of full independent judgment validation.
+
+---
+
+## 2026-10-20 — Additive pilot-v0.2 corpus coverage repair (data creation; not relevance adjudication)
+
+**User approval:** Add three new fictional candidate pages rather than altering existing synthetic descriptions, then review the resulting labels before running models.
+
+**New version:** [data/v2/pilot_v0_2](../../data/v2/pilot_v0_2/README.md).  
+**Source version remains untouched:** [data/v2/pilot](../../data/v2/pilot/README.md).  
+**Research specification:** [Corpus repair plan v0.2](corpus_gap_plan_v0_2.md).
+
+### Three new synthetic candidates
+- **SK09** explicitly offers **online booking of ski rental in Winterberg**.
+- **PH09** explicitly offers **online physiotherapy appointment scheduling in Innsbruck**, with no shoulder specialization asserted.
+- **TR09** explicitly offers a **private car** booking on Oaxaca City → Puerto Escondido.
+
+### Changes and reproducibility
+- v0.2 has **27 documents**, **12 queries**, and a fully enumerated **324**-row qrel matrix.
+- Its first **24 document records** and original **12 query records** are identical to v0.1.
+- Its original **288 qrel entries**, including grades, rationales and review status, are unchanged.
+- Exactly **36** new query-document judgments (3 candidate pages × 12 queries) were **generated as proposals**. **All 324** entries have `review_status=proposed_unreviewed`.
+- New grade-2 coverage is proposed for SKQ01 → SK09, PHQ01 → PH09, and TRQ01 → TR09; their equivalent-language queries SKQ02/PHQ02/TRQ02 also receive grade 2 for these pages. PHQ03 → PH09 is **grade 1** because the page does not demonstrate shoulder-specific treatment.
+- New grade distribution **289 / 17 / 18** for grades **0 / 1 / 2**. There is **at least one *proposed* grade 2** for every query (the structural coverage gate is satisfied, annotation-quality gate is **not**).
+- Original development/test assignments retained (**8/4**, group-consistent), but the openly published pilot test remains **not blinded**.
+- A standalone [validation script](../../scripts/validate_v2_pilot_v0_2.py) is provided for users to run with Python 3; counts/invariants were checked during generation, but independent human relevance judgments have not taken place.
+
+**Next audit:** Review all 36 new qrel proposals and the previously triaged **68 within-sector grade-0 pairs**, then the remaining pairs. Do not merge as a validated benchmark or claim model performance until the review gates are met.
