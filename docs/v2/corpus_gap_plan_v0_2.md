@@ -1,6 +1,7 @@
 # Benchmark V2 Pilot — Corpus coverage repair plan for v0.2
 
 **Status:** DESIGN PROPOSAL ONLY — do not treat this as an approved data change.  
+**Implementation update (2026-10-20):** The user approved the **additive 27-document** option; it has been created as a **separate synthetic draft version** in [data/v2/pilot_v0_2](../../data/v2/pilot_v0_2/README.md) with **12 queries, 27 documents and 324 AI-proposed, unreviewed qrels**. The 24 original document records, 12 queries, and 288 existing qrels were copied unchanged into v0.2 and remain intact at the v0.1 source path. All 12 queries now have at least one **proposed** grade-2 candidate. This implementation does **not** imply human validation, a blinded test, or permission to run a leaderboard. The alternatives and next steps below are retained as the historical design proposal.  
 **Motivation:** The 2026-10-20 strict-evidence adjudication lowered six qrels from grade 2 to 1. The current `pilot-v0.1` corpus (12 queries, 24 synthetic documents) has **no fully relevant candidate** for three development queries.
 
 ## Exact uncovered needs
