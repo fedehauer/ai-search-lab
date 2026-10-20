@@ -1,6 +1,7 @@
 # AI Search Lab — Benchmark V2 Specification
 
 **Status:** PROPOSED — review required before generating datasets or running experiments  
+**Pilot status update (2026-10-20):** The original 12-query/24-document **design target** was extended through a separately versioned **v0.2 pilot** with **27 synthetic documents and 324 proposed, unreviewed qrels** after six unsupported grade-2 relationships were adjudicated. Every query now has a *proposed* grade-2 candidate; the **human-validation and evaluation-readiness requirements remain unmet**. The public pilot test is not blinded. See [pilot v0.2](data/v2/pilot_v0_2/README.md) and [adjudication log](docs/v2/adjudication_log.md). This note updates the implementation status, not the proposed full V2 research target (60 queries / 80 documents).  
 **Version:** 0.1 (design only)  
 **Repository:** `fedehauer/ai-search-lab`  
 **Language of technical documentation:** English  
