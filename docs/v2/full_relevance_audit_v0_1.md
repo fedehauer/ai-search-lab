@@ -1,6 +1,8 @@
 # Benchmark V2 pilot — Grade-2 relevance audit (v0.1)
 
 **Status:** Evidence review by the assistant; **not a second independent human annotation, not a validated benchmark**.  
+**Historical audit update (2026-10-20):** Following user approval of a strict explicit-evidence rule, all **six** HOLD pairs in this original grade-2 audit were downgraded **2 → 1** in `qrels_draft.csv`, and three queries (`SKQ01`, `PHQ01`, `TRQ01`) no longer have a fully relevant candidate. **The original table below is a pre-adjudication snapshot, not the current set of grade-2 labels.** See the [adjudication log](adjudication_log.md) and [current qrels](../../data/v2/pilot/qrels_draft.csv); current distribution is **260 / 16 / 12** for grades 0/1/2. The pilot does not yet pass its evaluation-ready gate.  
+
 **Source:** Existing `data/v2/pilot/queries.jsonl`, `documents.jsonl`, `qrels_draft.csv`, plus the [annotation guidelines](annotation_guidelines.md).  
 **Scope:** All **18** pairs labeled **2 (fully relevant)**. Read only synthetic query text and the candidate page title/description, **not model scores or model output**.  
 **Dataset change:** None. This document reports provisional decisions; all **288** source judgments remain `proposed_unreviewed`.
